@@ -1,2 +1,2 @@
 SELECT * 
-FROM {{ source("raw", "stores") }}
+FROM {{ source("local_bike_data_lake", "stores") }}
