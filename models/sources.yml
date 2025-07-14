@@ -5,8 +5,10 @@ sources:
     schema: gender_lookups                 
     description: "Tables calculated with python to define gender"
     tables:
-        - name: customers_gender
-        - name: staffs_gender
+      - name: customers_gender
+        description: "Customers gender"
+      - name: staffs_gender
+        description: "Staffs gender"
       
   - name: local_bike_data_lake   
     schema: local_bike_data_lake                 
