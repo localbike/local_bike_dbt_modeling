@@ -1,3 +1,6 @@
+-- CREATED BY : reusnep@consulting-agency.com
+-- LAST UPDATE: 2025-07-14
+
 {{ config(
     cluster_by=["product_id", "order_id"]
 ) }}

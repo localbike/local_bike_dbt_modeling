@@ -2,7 +2,7 @@
     partition_by={
         "field": "order_date",
         "data_type": "date",
-        "granularity": "week"
+        "granularity": "month"
     },
     cluster_by=["order_status", "store_id", "staff_id"]
 ) }}

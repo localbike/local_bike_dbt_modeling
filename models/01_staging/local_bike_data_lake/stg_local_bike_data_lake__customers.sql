@@ -1,3 +1,6 @@
+-- CREATED BY : reusnep@consulting-agency.com
+-- LAST UPDATE: 2025-07-14
+
 SELECT DISTINCT
       customer_id
     , first_name
