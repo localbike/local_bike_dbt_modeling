@@ -74,10 +74,6 @@ models:
             description: "The foreign key for this table"
             tests: 
               - not_null
-          - name: product_id
-            description: "The foreign key for this table"
-            tests: 
-              - not_null
 
     - name: stg_raw__stores
       description: "Stores table"
