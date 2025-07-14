@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: local_bike_data_lake   
+    schema: raw                 
+    description: "Raw data lake tables"
+    tables:
+      - name: orders
+        description: "Orders source table"
+      - name: brands
+        description: "Brands source table"
+      - name: categories
+        description: "Categories source table"
+      - name: customers
+        description: "Customers source table"
+      - name: order_items
+        description: "Order items source table"
+      - name: products
+        description: "Products source table"
+      - name: staffs
+        description: "Staffs source table"
+      - name: stocks
+        description: "Stocks source table"
+      - name: stores
+        description: "Stores source table"
