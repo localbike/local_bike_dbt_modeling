@@ -1,8 +1,15 @@
 version: 2
 
 sources:
+  - name: gender_lookups   
+    schema: gender_lookups                 
+    description: "Tables calculated with python to define gender"
+    tables:
+        - name: customers_gender
+        - name: staffs_gender
+      
   - name: local_bike_data_lake   
-    schema: raw                 
+    schema: local_bike_data_lake                 
     description: "Raw data lake tables"
     tables:
       - name: orders
@@ -13,6 +20,7 @@ sources:
         description: "Categories source table"
       - name: customers
         description: "Customers source table"
+      - name: customers_gender_lookup
       - name: order_items
         description: "Order items source table"
       - name: products
