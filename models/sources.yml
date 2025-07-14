@@ -20,7 +20,6 @@ sources:
         description: "Categories source table"
       - name: customers
         description: "Customers source table"
-      - name: customers_gender_lookup
       - name: order_items
         description: "Order items source table"
       - name: products

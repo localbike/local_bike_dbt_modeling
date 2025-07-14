@@ -8,14 +8,14 @@
 ) }}
 
 SELECT DISTINCT
-    order_id
-, customer_id
-, order_status
-, order_date
-, required_date
-, shipped_date
-, store_id
-, staff_id
+      order_id
+    , customer_id
+    , order_status
+    , order_date
+    , required_date
+    , shipped_date
+    , store_id
+    , staff_id
 FROM {{ source("local_bike_data_lake", "orders") }}
 WHERE order_date IS NOT NULL
 
