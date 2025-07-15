@@ -28,8 +28,6 @@ select
     ) as category_diversity_score
 from {{ ref("int_local_bike_data_lake__customers") }} c
 left join {{ ref("int_local_bike_data_lake__products") }} s on c.store_id = s.store_id
-left join
-    {{ ref("int_local_bike_data_lake__orders") }} o on c.customer_id = o.customer_id
-left join
-    {{ ref("int_local_bike_data_lake__products") }} p on o.product_id = p.product_id
+left join {{ ref("int_local_bike_data_lake__orders") }} o on c.customer_id = o.customer_id
+left join {{ ref("int_local_bike_data_lake__products") }} p on o.product_id = p.product_id
 group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
