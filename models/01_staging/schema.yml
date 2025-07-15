@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_raw__brands
+    - name: stg_local_bike_data_lake__brands
       description: "Product brand names"
       columns:
           - name: brand_id
@@ -10,7 +10,7 @@ models:
                 - unique
                 - not_null
 
-    - name: stg_raw__categories
+    - name: stg_local_bike_data_lake__categories
       description: "Product categories"
       columns:
           - name: category_id
@@ -19,7 +19,7 @@ models:
                 - unique
                 - not_null
     
-    - name: stg_raw__customers
+    - name: stg_local_bike_data_lake__customers
       description: "Customers table"
       columns:
           - name: customer_id
@@ -28,7 +28,7 @@ models:
                 - unique
                 - not_null
     
-    - name: stg_raw__order_items
+    - name: stg_local_bike_data_lake__order_items
       description: "Customers table"
       columns:
           - name: item_id
@@ -40,7 +40,7 @@ models:
             tests:
                 - not_null
     
-    - name: stg_raw__orders
+    - name: stg_local_bike_data_lake__orders
       description: "Orders table"
       columns:
           - name: order_id
@@ -49,7 +49,7 @@ models:
               - not_null
               - unique
     
-    - name: stg_raw__products
+    - name: stg_local_bike_data_lake__products
       description: "Products table"
       columns:
           - name: product_id
@@ -58,7 +58,7 @@ models:
               - not_null
               - unique
     
-    - name: stg_raw__staffs
+    - name: stg_local_bike_data_lake__staffs
       description: "Staffs table"
       columns:
           - name: staff_id
@@ -67,7 +67,7 @@ models:
               - not_null
               - unique
     
-    - name: stg_raw__stocks
+    - name: stg_local_bike_data_lake__stocks
       description: "Staffs table"
       columns:
           - name: product_id
@@ -75,7 +75,7 @@ models:
             tests: 
               - not_null
 
-    - name: stg_raw__stores
+    - name: stg_local_bike_data_lake__stores
       description: "Stores table"
       columns:
           - name: store_id

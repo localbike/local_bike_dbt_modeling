@@ -38,15 +38,10 @@ models:
     +persist_docs:
       relation: true
       columns: true
+      
     01_staging:
       +materialized: view
-      local_bike_data_lake:
-        schema: stg_local_bike_data_lake
-      customers_gender:
-        schema: stg_gender_lookups
     02_intermediate:
       +materialized: view
-      local_bike_data_lake:
-        schema: int_local_bike_data_lake
     03_mart:
       +materialized: table
