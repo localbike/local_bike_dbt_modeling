@@ -25,7 +25,7 @@ def detect_gender(name):
         "mostly_male": "male",
         "female": "female",
         "mostly_female": "female",
-        "andy": "ambiguous",  # Androgynous or ambiguous names
+        "andy": "unknown",
         "unknown": "unknown"
     }
     return mapping.get(raw, "unknown")
