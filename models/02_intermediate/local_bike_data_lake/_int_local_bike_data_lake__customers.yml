@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: int_local_bike_data_lake__customers.sql
+  - name: int_local_bike_data_lake__customers
     description: '{{ doc("int_local_bike_data_lake__customers") }}'
     columns:
       - name: customer_id
-        description: "Unique identifier for the customer."
+        description: "Unique identifier for customer."

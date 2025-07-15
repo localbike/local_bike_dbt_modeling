@@ -1,4 +1,4 @@
-{% docs int_local_bike_data_lake__orders_enriched %}
+{% docs int_local_bike_data_lake__orders %}
 
 ### Overview
 
@@ -24,6 +24,7 @@ It uses partitioning by `order_date` (monthly granularity) and clustering by `st
 | `required_date`       | Date by which the order was expected to be shipped |
 | `shipped_date`        | Actual date the order was shipped |
 | `order_status`        | Status of the order (e.g., placed, shipped, delivered) |
+| `product_id`          | Identifier of the product |
 | `store_id`            | Identifier of the store that processed the order |
 | `staff_id`            | Identifier of the staff member who handled the order |
 | `total_items`         | Total quantity of items in the order |

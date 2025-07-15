@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: int_local_bike_data_lake__products
+    description: '{{ doc("int_local_bike_data_lake__products") }}'
+    columns:
+      - name: product_id
+        description: "Unique identifier for the order."

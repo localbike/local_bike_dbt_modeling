@@ -22,6 +22,7 @@ SELECT
         WHEN o.shipped_date IS NOT NULL AND o.required_date IS NOT NULL AND o.shipped_date > o.required_date THEN 'Late'
       ELSE 'Pending'
       END AS order_status
+    , oi.product_id
     , st.store_id
     , st.store_name
     , s.staff_id
@@ -34,4 +35,4 @@ FROM {{ ref('stg_local_bike_data_lake__orders') }} AS o
 LEFT JOIN {{ ref('stg_local_bike_data_lake__order_items') }} AS oi ON oi.order_id = o.order_id
 LEFT JOIN {{ ref('stg_local_bike_data_lake__stores') }} AS st ON st.store_id = o.store_id
 LEFT JOIN {{ ref('int_local_bike_data_lake__staffs')}} AS s ON s.staff_id = o.staff_id
-GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15
