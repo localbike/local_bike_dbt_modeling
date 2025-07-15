@@ -105,3 +105,6 @@ This project enables:
 - **Personalization**: Leveraging customer 360 metrics
 - **Business Intelligence**: Ready-to-use datasets for dashboards
 - **Analytics**: Historical trends and customer lifetime value analys
+
+Dashboard Link: https://lookerstudio.google.com/reporting/0d155aa0-7707-411f-bb46-f32c5d8f3ff3
+

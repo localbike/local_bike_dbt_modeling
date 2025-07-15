@@ -12,8 +12,8 @@ Quartiles are calculated dynamically from the dataset using BigQuery's `APPROX_Q
 
 ### Segment Logic
 
-| Segment       | Criteria                                                                                                                                         |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Segment       | Criteria                                                                                                                                        |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | High Value    | Top 25% in both `total_spent` and `total_items_purchased`, and among the most recent 25% (`days_since_last_order` in bottom quartile)           |
 | Engaged       | Above-median values in both `total_spent` and `total_items_purchased`, and moderately recent orders                                             |
 | Dormant       | Long time since last order (`days_since_last_order` in top quartile) regardless of spend                                                        |
