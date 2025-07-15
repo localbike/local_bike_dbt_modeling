@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_local_bike_data_lake__staffs.sql
+  - name: int_local_bike_data_lake__staffs
     description: '{{ doc("int_local_bike_data_lake__staffs") }}'
     columns:
       - name: staff_id
