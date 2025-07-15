@@ -11,6 +11,7 @@ SELECT DISTINCT
     , p.category_id
     , c.category_name
     , p.model_year
+    , s.store_id
     , p.list_price
     , s.quantity AS product_quantity
 FROM {{ ref("stg_local_bike_data_lake__products") }} p
