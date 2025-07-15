@@ -20,6 +20,7 @@ The `mart_customer_360` model serves as a customer-centric mart that includes:
 | Field Name                 | Description                                                                 |
 |----------------------------|-----------------------------------------------------------------------------|
 | `customer_id`              | Unique identifier of the customer.                                          |
+| `customer_gender`          | Gender estimated of the customer.                                          |
 | `total_orders`             | Total number of orders made by the customer.                                |
 | `total_spent`              | Total amount spent by the customer.                                         |
 | `avg_order_value`          | Average value of orders.                                                    |
@@ -32,13 +33,7 @@ The `mart_customer_360` model serves as a customer-centric mart that includes:
 | `store_state`              | State or region of the store.                                               |
 | `categories_purchased`     | Number of distinct product categories the customer has purchased from.      |
 | `brands_purchased`         | Number of distinct brands the customer has purchased from.                  |
-| `category_diversity_score` | Ratio of categories purchased to total available categories (range 0–1).    | 
 
 ---
-
-## Logic Highlights
-
-### `category_diversity_score`
-This metric measures how diversely a customer shops across product categories.
 
 {% enddocs %}
