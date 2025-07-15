@@ -15,6 +15,8 @@ Each layer builds upon the previous one to progressively clean, enrich, and expo
 
 ## 📁 Project Structure
 
+![Data Lineage](lineage.png)
+
 ### `01_staging/`
 - **Purpose**: Standardizes raw data from the data lake
 - **Schemas**:
@@ -56,6 +58,7 @@ This model aggregates multiple dimensions per customer:
 | Column Name | Description |
 |-------------|-------------|
 | `customer_id` | Unique customer identifier |
+| `customer_gender` | Gender estimated of the customer |
 | `total_orders` | Total number of orders |
 | `total_spent` | Total monetary amount spent |
 | `avg_order_value` | Average order value |
@@ -66,7 +69,6 @@ This model aggregates multiple dimensions per customer:
 | `store_city` / `store_state` | Location details of the store |
 | `categories_purchased` | Count of distinct categories purchased |
 | `brands_purchased` | Count of distinct brands purchased |
-| `category_diversity_score` | Diversity index (0–1) = distinct categories bought ÷ total categories |
 
 ## ✅ Getting Started
 
