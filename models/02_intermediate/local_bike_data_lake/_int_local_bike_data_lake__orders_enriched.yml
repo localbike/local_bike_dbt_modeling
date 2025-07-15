@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: int_local_bike_data_lake__orders_enriched.sql
+    description: '{{ doc("int_local_bike_data_lake__orders_enriched") }}'
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."

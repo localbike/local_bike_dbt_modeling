@@ -24,8 +24,8 @@ SELECT DISTINCT
             AND SAFE_CAST(manager_id AS INT64) IS NOT NULL
         )
         THEN 'Manager' 
-        ELSE 'Non Manager'
-      END AS role,
+        ELSE 'Managee'
+      END AS staff_role,
 
       active,
       store_id
