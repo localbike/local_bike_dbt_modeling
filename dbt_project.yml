@@ -1,4 +1,3 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -24,7 +23,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -36,23 +34,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-
-  +persist_docs:
-    relation: true
-    columns: true
-
-  01_staging:
-    +materialized: view
-    local_bike_data_lake:
-      schema: stg_local_bike_data_lake
-    customers_gender:
-      schema: stg_gender_lookups
-
-  02_intermediate:
-    +materialized: view
-    local_bike_data_lake:
-      schema: int_local_bike_data_lake
-
-  03_mart:
-    +materialized: table
-
+  local_bike_dbt_project:
+    +persist_docs:
+      relation: true
+      columns: true
+    01_staging:
+      +materialized: view
+      local_bike_data_lake:
+        schema: stg_local_bike_data_lake
+      customers_gender:
+        schema: stg_gender_lookups
+    02_intermediate:
+      +materialized: view
+      local_bike_data_lake:
+        schema: int_local_bike_data_lake
+    03_mart:
+      +materialized: table

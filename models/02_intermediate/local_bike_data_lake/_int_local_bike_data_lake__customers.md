@@ -2,67 +2,56 @@
 
 ## Description
 
-This model enriches customer data by combining personal information with order behavior and inferred gender. It enables advanced customer analytics such as segmentation, lifetime value estimation, and retention analysis.
+This model enriches customer-level data with order metrics, product quantities, recency of activity, and a dynamic segmentation logic based on quartile distribution of key indicators:
 
-The model calculates **aggregated metrics per customer**, including total spending, order frequency, average order value, and recency. It also includes a **proposed customer segmentation** based on transaction history.
+- **Total Amount Spent**
+- **Total Items Purchased**
+- **Days Since Last Order**
 
-## Data Sources
+Quartiles are calculated dynamically from the dataset using BigQuery's `APPROX_QUANTILES()` function. Customers are classified into the following segments:
 
-- `int_local_bike_data_lake__orders_enriched`: Aggregated order-level data with financial and fulfillment metrics.
-- `stg_local_bike_data_lake__customers`: Base customer data, including contact info and location.
-- `stg_gender_lookups__customers_gender_lookup`: Lookup table that infers gender based on first name.
+### Segment Logic
+
+| Segment       | Criteria                                                                                                                                         |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| High Value    | Top 25% in both `total_spent` and `total_items_purchased`, and among the most recent 25% (`days_since_last_order` in bottom quartile)           |
+| Engaged       | Above-median values in both `total_spent` and `total_items_purchased`, and moderately recent orders                                             |
+| Dormant       | Long time since last order (`days_since_last_order` in top quartile) regardless of spend                                                        |
+| Low Value     | All other customers                                                                                                                             |
 
 ## Fields
 
-| Field | Description |
-|-------|-------------|
-| `customer_id` | Unique identifier for each customer. |
-| `gender` | Inferred gender from the customer's first name using a lookup table. |
-| `email` | Email address of the customer. |
-| `city` | Customer's city of residence. |
-| `state` | Customer's state of residence. |
-| `store_name` | Name of the store where the customer placed orders. |
-| `store_id` | Identifier of the store where purchases were made. |
-| `total_orders` | Number of unique orders placed by the customer. |
-| `total_spent` | Total monetary value spent by the customer across all orders. |
-| `avg_order_value` | Average order value (total spent / total orders). |
-| `first_order_date` | Date of the customer's first order. |
-| `last_order_date` | Date of the most recent order placed by the customer. |
-| `total_items_purchased` | Sum of all items purchased by the customer. |
-| `days_since_last_order` | Number of days since the last order (recency metric). |
-| `customer_segment` | Proposed customer classification. |
+| Field                    | Description                                                       |
+|--------------------------|-------------------------------------------------------------------|
+| `customer_id`            | Unique identifier for the customer                               |
+| `customer_gender`        | Gender inferred from customer's first name                       |
+| `customer_email`         | Email address of the customer                                    |
+| `customer_city`          | City of residence                                                |
+| `customer_state`         | State of residence                                               |
+| `store_name`             | Name of the store associated with most orders                    |
+| `store_id`               | ID of the store                                                  |
+| `total_orders`           | Total distinct orders placed                                     |
+| `total_spent`            | Total net value of all orders                                    |
+| `avg_order_value`        | Average value per order                                          |
+| `first_order_date`       | Date of the first order placed                                   |
+| `last_order_date`        | Date of the most recent order placed                             |
+| `total_items_purchased`  | Total number of items purchased                                  |
+| `days_since_last_order`  | Number of days since the last order                              |
+| `customer_segment`       | Segment assigned based on quartile-based classification logic    |
 
-## Customer Segmentation Logic
+## Dependencies
 
-Customers are segmented based on their purchasing behavior:
+This model depends on the following staging and intermediate models:
 
-- `VIP`: ≥ 10 orders and ≥ $5,000 total spent.
-- `Loyal`: ≥ 5 orders and ≥ $2,000 total spent.
-- `Regular`: ≥ 2 orders.
-- `New`: All others.
-
-## Use Cases
-
-- Identifying high-value customers (`VIP`, `Loyal`) for retention or loyalty campaigns.
-- Segmenting customers for targeted marketing or personalized communications.
-- Analyzing purchase recency and churn indicators (`days_since_last_order`).
-- Linking purchase behavior to demographic traits (e.g., gender, location).
-
-## Materialization
-
-This model is materialized as a **table**, and clustered by:
-
-- `customer_id`
-- `store_id` (via `store_name` aggregation)
+- `stg_local_bike_data_lake__customers`
+- `stg_gender_lookups__customers_gender_lookup`
+- `int_local_bike_data_lake__orders`
 
 ## Notes
 
-- Gender is inferred and may not always be accurate.
-- If no orders exist for a customer, financial and segmentation fields will be `NULL`.
-- Can be extended with churn scoring or RFM metrics.
+- The segmentation logic is fully dynamic and adjusts with underlying data distributions.
+- Gender attribution is based on a first-name lookup table.
+- Designed for use in reporting dashboards and customer behavior analysis.
 
----
-
-Souhaites-tu aussi une version `.yml` pour ce modèle, afin d'intégrer la documentation dans `dbt docs` et activer les tooltips dans le lineage ?
 
 {% enddocs %}

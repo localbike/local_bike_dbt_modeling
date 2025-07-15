@@ -23,6 +23,7 @@ This model provides an **enriched view of products** by joining product details 
 | `category_id` | Foreign key to the category. |
 | `category_name` | Descriptive name of the product category (e.g., Road, Mountain, Kids). |
 | `model_year` | The year the product model was released. |
+| `store_id` | Unique identifier for the store. |
 | `list_price` | The listed price of the product. |
 | `product_quantity` | The current quantity in stock for the product. |
 
@@ -36,10 +37,5 @@ This model provides an **enriched view of products** by joining product details 
 
 - The model uses `DISTINCT` to ensure no duplicate records, which can occur due to joins with the `stocks` table.
 - This model is typically used in conjunction with sales or order data to compute KPIs like product conversion rate, inventory turnover, etc.
-
----
-
-Souhaitez-vous que je génère également un `description` block pour le fichier `.yml` DBT (pour les docs dans `dbt docs` et lineage) ?
-
 
 {% enddocs %}
