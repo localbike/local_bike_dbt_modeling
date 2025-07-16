@@ -1,6 +1,7 @@
 # CREATED BY : reusnep@consulting-agency.com
 # LAST UPDATE: 2025-07-14
 
+!pip install gender-guesser
 import pandas as pd
 import gender_guesser.detector as gender
 from google.cloud import bigquery
